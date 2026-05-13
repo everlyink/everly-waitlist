@@ -110,6 +110,7 @@
     /* ── SCROLL REVEAL ── */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
     .reveal-delay-1 { transition-delay: .1s; }
     .reveal-delay-2 { transition-delay: .2s; }
     .reveal-delay-3 { transition-delay: .32s; }
@@ -131,7 +132,7 @@
     @keyframes s2 { 0%,65%{opacity:0;transform:translate(0,0)} 75%{opacity:1;transform:translate(18px,-16px)} 85%,100%{opacity:0;transform:translate(26px,-28px)} }
     @keyframes s3 { 0%,68%{opacity:0;transform:translate(0,0)} 78%{opacity:1;transform:translate(-6px,-25px)} 88%,100%{opacity:0;transform:translate(-10px,-40px)} }
 
-    .pricing-grid { display: grid;
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto 2rem; }
     .pricing-card { background: var(--warm-white); border: 1px solid var(--terracotta-mid); border-radius: 6px; padding: 2rem 1.75rem; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .2s; }
     .pricing-card:hover { transform: translateY(-2px); }
     .pricing-card.featured { border-top: 3px solid var(--terracotta); }
@@ -162,13 +163,13 @@
     .thank-you p { font-family: 'Alice', serif; font-size: clamp(1.5rem,4vw,2rem); color: var(--warm-white); line-height: 1.5; }
     .thank-you .star { color: var(--terracotta-light); }
 
-    footer { background: var(--warm-black); padding: 2.5rem clamp(1.5rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo { font-family: 'Alice', serif; font-size: 1.1rem; color: var(--terracotta-light); text-transform: lowercase; }
-    .footer-logo .cursor { color: var(--terracotta-light); animation: blink 1s step-end infinite; }
-    .footer-copy { font-size: .8rem; color: var(--terracotta-light); text-align: center; }
+    footer { background: var(--sand); padding: 2.5rem clamp(1.5rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Alice', serif; font-size: 1.1rem; color: var(--terracotta); text-transform: lowercase; }
+    .footer-logo .cursor { color: var(--terracotta); animation: blink 1s step-end infinite; }
+    .footer-copy { font-size: .8rem; color: var(--muted); text-align: center; }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { font-size: .8rem; color: var(--warm-black); text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: var(--terracotta-light); }
+    .footer-links a:hover { color: var(--terracotta); }
 
     @media(max-width:600px) {
       footer { flex-direction: column; align-items: center; text-align: center; }
@@ -183,8 +184,8 @@
 </nav>
 
 <section id="hero">
-  <h1>write it now.<br>deliver it always.</h1>
-  <p class="sub">everly holds your messages safely until the perfect moment — a daughter's 18th birthday, a 25th anniversary, a note for when you can't be there. or a letter to yourself, opened every year, to see how far you've come.</p>
+  <h1><span style="color:#8B3D28;">&ldquo;send this on olivia&rsquo;s 18th birthday in 2030.&rdquo;</span></h1>
+  <p class="sub">write the message today. everly holds it safely and delivers it at exactly the right moment — a birthday, an anniversary, a milestone years away. or a letter to yourself, opened every year, to see how far you've come.</p>
   <a href="#waitlist" class="btn-forest">join the waitlist →</a>
   <p class="hero-caption">free to join. a message to the future.</p>
 </section>
@@ -222,20 +223,20 @@
 
 <section id="voices" class="reveal" aria-labelledby="voices-heading">
   <p class="voices-intro" id="voices-heading">
-    everly is built for <span class="hl">&ldquo;send this on my daughter&rsquo;s 18th birthday in 2031.&rdquo;</span>
+    some messages are too important to leave to the right moment. <span class="hl">write them now.</span>
   </p>
   <div class="voices-grid">
     <div class="voice-card">
-      <p class="voice-text">&ldquo;when my son turns 21, I want him to hear from me at exactly that moment. not a message I sent the night before — something I wrote with care, years ago, knowing exactly who he was becoming.&rdquo;</p>
-      <span class="voice-attr">— sarah, mother of two</span>
+      <p class="voice-text">&ldquo;i want to write a letter to myself every year on my birthday. not to anyone else — just to check in. to remember what i was afraid of, what i was hoping for. i think i'd find it useful. maybe even moving.&rdquo;</p>
+      <span class="voice-attr">— maya, 29</span>
     </div>
     <div class="voice-card">
-      <p class="voice-text">&ldquo;I got my diagnosis in March. there are birthdays I might not be there for. I've been searching for a way to still show up for those days. I think this might be it.&rdquo;</p>
+      <p class="voice-text">&ldquo;our son was born in april. he's eleven weeks old and i can't stop thinking about the things i want to say to him — when he's old enough to hear them. i want to write them now, while i still feel this way. before life gets in the way.&rdquo;</p>
+      <span class="voice-attr">— dan, new dad</span>
+    </div>
+    <div class="voice-card">
+      <p class="voice-text">&ldquo;i got my diagnosis in march. there are birthdays i might not be there for. i've been searching for a way to still show up for those days. i think this might be it.&rdquo;</p>
       <span class="voice-attr">— james, 54</span>
-    </div>
-    <div class="voice-card">
-      <p class="voice-text">&ldquo;my daughter starts secondary school in september. I want her to open something from me that morning — not a text, something real. I've been thinking about what I'd say for weeks.&rdquo;</p>
-      <span class="voice-attr">— priya, teacher</span>
     </div>
   </div>
 </section>
@@ -261,7 +262,7 @@
           <div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div>
         </div>
         <div class="pc-label">to</div>
-        <div class="pc-to">eleanor · daughter · age 18 in 2031</div>
+        <div class="pc-to">olivia · daughter · age 18 in 2030</div>
         <div class="pc-label">your message</div>
         <div class="pc-body">
           by the time you read this, you'll be eighteen. i wrote this when you were still small enough to fall asleep on my shoulder. i want you to know that watching you grow has been the greatest thing i've ever done.<span class="pc-cursor"></span>
@@ -282,19 +283,19 @@
         <div class="ps-title">deliver on</div>
         <div class="ps-month">
           <span class="ps-arrow">‹</span>
-          <span class="ps-month-name">march 2031</span>
+          <span class="ps-month-name">november 2030</span>
           <span class="ps-arrow">›</span>
         </div>
         <div class="ps-grid">
           <div class="ps-day-name">m</div><div class="ps-day-name">t</div><div class="ps-day-name">w</div><div class="ps-day-name">t</div><div class="ps-day-name">f</div><div class="ps-day-name">s</div><div class="ps-day-name">s</div>
           <div class="ps-day empty"></div><div class="ps-day empty"></div><div class="ps-day empty"></div><div class="ps-day empty"></div><div class="ps-day">1</div><div class="ps-day">2</div><div class="ps-day">3</div>
           <div class="ps-day">4</div><div class="ps-day">5</div><div class="ps-day">6</div><div class="ps-day">7</div><div class="ps-day">8</div><div class="ps-day">9</div><div class="ps-day">10</div>
-          <div class="ps-day">11</div><div class="ps-day">12</div><div class="ps-day">13</div><div class="ps-day">14</div><div class="ps-day selected">15</div><div class="ps-day">16</div><div class="ps-day">17</div>
+          <div class="ps-day">11</div><div class="ps-day">12</div><div class="ps-day">13</div><div class="ps-day">14</div><div class="ps-day">15</div><div class="ps-day">16</div><div class="ps-day selected">17</div>
           <div class="ps-day">18</div><div class="ps-day">19</div><div class="ps-day">20</div><div class="ps-day">21</div><div class="ps-day">22</div><div class="ps-day">23</div><div class="ps-day">24</div>
         </div>
         <div class="ps-tag">
           <div class="ps-tag-dot"></div>
-          eleanor's 18th birthday · arriving in 5 years
+          olivia's 18th birthday · arriving in 4 years
         </div>
       </div>
     </div>
@@ -310,8 +311,8 @@
       </div>
       <div class="preview-delivered" aria-hidden="true">
         <div class="pd-from">a message from mum</div>
-        <div class="pd-name">dear eleanor,</div>
-        <div class="pd-date">15 march 2031 · delivered by everly</div>
+        <div class="pd-name">dear olivia,</div>
+        <div class="pd-date">17 november 2030 · delivered by everly</div>
         <div class="pd-divider"></div>
         <div class="pd-body">by the time you read this, you'll be eighteen. i wrote this when you were still small enough to fall asleep on my shoulder. i want you to know that watching you grow has been the greatest thing i've ever done.</div>
         <div class="pd-sig">with all my love, always — mum</div>
@@ -328,7 +329,7 @@
 <section class="section-cream reveal" aria-labelledby="pricing-heading">
   <div class="section-heading">
     <h2 id="pricing-heading">simple, honest pricing.</h2>
-    <p>from free to forever — there's a plan for every kind of message.</p>
+    <p>a plan for every kind of message — whenever it needs to arrive.</p>
   </div>
   <div class="pricing-grid">
     <div class="pricing-card">
@@ -353,11 +354,11 @@
       <div class="pricing-tagline">for everything you want to leave behind.</div>
       <div class="pricing-price">£79 <span>one-off</span></div>
       <ul class="pricing-features">
-        <li>unlimited messages</li><li>all channels</li><li>5 physical cards included</li>
+        <li>as many messages as you need</li><li>all channels</li><li>5 physical cards included</li>
       </ul>
     </div>
   </div>
-  <p class="pricing-note">all plans include our trust &amp; verification layer — so your message arrives safely, and only when it should.</p>
+  <p class="pricing-note">all messages are stored securely and delivered via email — the most reliable channel across any timeline. sms and whatsapp available for near-term deliveries.</p>
 </section>
 
 <section id="waitlist" class="reveal" aria-labelledby="waitlist-heading">
@@ -420,9 +421,17 @@
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.05 });
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // also trigger any reveal elements already in view on load
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  }, 100);
 
   const stepObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
