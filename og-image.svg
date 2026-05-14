@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#FCDFC8"/>
+
+  <!-- grain dots -->
+  <circle cx="80" cy="80" r="2" fill="#2C4A3E" opacity="0.08"/>
+  <circle cx="1120" cy="100" r="1.5" fill="#2C4A3E" opacity="0.07"/>
+  <circle cx="200" cy="540" r="2" fill="#2C4A3E" opacity="0.06"/>
+  <circle cx="1050" cy="520" r="1.5" fill="#2C4A3E" opacity="0.07"/>
+  <circle cx="600" cy="40" r="1.5" fill="#2C4A3E" opacity="0.06"/>
+  <circle cx="950" cy="580" r="2" fill="#2C4A3E" opacity="0.06"/>
+
+  <!-- logo top left -->
+  <text x="80" y="90" font-family="Georgia, serif" font-size="28" fill="#2C4A3E" opacity="0.6" letter-spacing="-1">everly|</text>
+
+  <!-- hero line — big and leading -->
+  <text x="600" y="248" font-family="Georgia, serif" font-size="58" fill="#2C4A3E" text-anchor="middle" letter-spacing="-1" font-style="italic">&#x201C;send this on olivia&#x2019;s</text>
+  <text x="600" y="318" font-family="Georgia, serif" font-size="58" fill="#2C4A3E" text-anchor="middle" letter-spacing="-1" font-style="italic">18th birthday in 2030.&#x201D;</text>
+
+  <!-- divider -->
+  <line x1="440" y1="358" x2="760" y2="358" stroke="#2C4A3E" stroke-width="1" opacity="0.18"/>
+
+  <!-- tagline below -->
+  <text x="600" y="408" font-family="Georgia, serif" font-size="24" fill="#2C4A3E" text-anchor="middle" opacity="0.55" letter-spacing="0.5">now in words. always in time.</text>
+
+  <!-- domain bottom right -->
+  <text x="1120" y="570" font-family="Georgia, serif" font-size="18" fill="#2C4A3E" text-anchor="end" opacity="0.35" letter-spacing="1">everly.ink</text>
+</svg>
