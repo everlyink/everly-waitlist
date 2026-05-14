@@ -39,7 +39,12 @@
     #hero { text-align: center; padding-top: clamp(5rem,12vw,9rem); padding-bottom: clamp(5rem,12vw,9rem); animation: fadeUp .9s ease both; background: var(--terracotta-light); }
     #hero h1 { font-size: clamp(2.4rem,6vw,4.2rem); line-height: 1.15; letter-spacing: -0.02em; max-width: 780px; margin: 0 auto 1.5rem; color: var(--warm-black); }
     #hero .sub { font-size: clamp(1rem,2vw,1.2rem); color: var(--muted); max-width: 560px; margin: 0 auto 2.5rem; line-height: 1.75; }
-    .hero-caption { margin-top: 1rem; font-size: .8rem; color: var(--very-muted); }
+    .social-proof { display: inline-flex; align-items: center; gap: 1rem; background: var(--sand-tint); border: 1px solid var(--sand); border-radius: 50px; padding: .6rem 1.25rem .6rem .6rem; margin: 1.5rem 0 .75rem; box-shadow: 0 2px 12px rgba(28,28,26,.07); }
+    .proof-faces { display: flex; }
+    .proof-face { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--terracotta-light); display: flex; align-items: center; justify-content: center; font-size: .7rem; color: var(--warm-white); font-family: 'Inter', sans-serif; font-weight: 400; margin-left: -8px; }
+    .proof-face:first-child { margin-left: 0; }
+    .proof-text { font-size: .8rem; color: var(--muted); line-height: 1.4; text-align: left; }
+    .proof-text strong { color: var(--warm-black); font-weight: 400; }
 
     .btn-forest { display: inline-block; background: var(--forest); color: var(--warm-white); font-family: 'Alice', serif; font-size: 1rem; padding: .85rem 2rem; border-radius: 4px; border: none; cursor: pointer; text-decoration: none; text-transform: lowercase; transition: background .2s, transform .15s; }
     .btn-forest:hover { background: var(--forest-dark); transform: translateY(-1px); }
@@ -143,7 +148,7 @@
     .pricing-price span { font-family: 'Inter', sans-serif; font-size: .85rem; font-weight: 300; color: var(--muted); }
     .pricing-features { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
     .pricing-features li { font-size: .875rem; color: var(--muted); display: flex; align-items: center; gap: .5rem; }
-    .pricing-features li::before { content: '·'; color: var(--forest); font-size: 1.2rem; line-height: 1; flex-shrink: 0; }
+    .pricing-duration { font-size: .75rem; color: var(--terracotta); letter-spacing: .02em; margin-top: 1rem; padding-top: .75rem; border-top: 1px solid var(--sand); }
     .pricing-note { text-align: center; font-size: .8rem; color: var(--very-muted); max-width: 560px; margin: 0 auto; }
 
     #waitlist { text-align: center; background: var(--forest); color: var(--warm-white); }
@@ -185,8 +190,17 @@
 
 <section id="hero">
   <h1><span style="color:#8B3D28;">&ldquo;send this on olivia&rsquo;s 18th birthday in 2030.&rdquo;</span></h1>
-  <p class="sub">write the message today. everly holds it safely and delivers it at exactly the right moment — a birthday, an anniversary, a milestone years away. or a letter to yourself, opened every year, to see how far you've come.</p>
+  <p class="sub">some messages are too important to leave to the right moment. write them now. everly delivers them then.</p>
   <a href="#waitlist" class="btn-forest">join the waitlist →</a>
+  <div class="social-proof" aria-label="social proof">
+    <div class="proof-faces" aria-hidden="true">
+      <div class="proof-face" style="background:#2C4A3E;">m</div>
+      <div class="proof-face" style="background:#8B7355;">d</div>
+      <div class="proof-face" style="background:#4A6741;">j</div>
+      <div class="proof-face" style="background:#7A5C4E;">s</div>
+    </div>
+    <p class="proof-text"><strong>maya, dan, james, and others</strong> are already writing their first messages. be among the first.</p>
+  </div>
   <p class="hero-caption">free to join. a message to the future.</p>
 </section>
 
@@ -331,32 +345,67 @@
     <h2 id="pricing-heading">simple, honest pricing.</h2>
     <p>a plan for every kind of message — whenever it needs to arrive.</p>
   </div>
-  <div class="pricing-grid">
+  <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+
     <div class="pricing-card">
       <div class="pricing-name">free</div>
       <div class="pricing-tagline">your first message, on us.</div>
       <div class="pricing-price">£0</div>
       <ul class="pricing-features">
-        <li>1 message</li><li>1 recipient</li><li>email delivery</li>
+        <li>1 message</li>
+        <li>1 recipient</li>
+        <li>email only</li>
       </ul>
+      <div class="pricing-duration">✦ held for up to 10 years</div>
     </div>
+
     <div class="pricing-card">
       <div class="pricing-name">single</div>
-      <div class="pricing-tagline">for a moment that matters.</div>
-      <div class="pricing-price">£4.99</div>
+      <div class="pricing-tagline">less than a coffee. lasts a decade.</div>
+      <div class="pricing-price">£5.99 <span>one-off</span></div>
       <ul class="pricing-features">
-        <li>5 messages</li><li>1 recipient</li><li>all digital channels</li>
+        <li>3 messages</li>
+        <li>1 recipient</li>
+        <li>all digital channels</li>
       </ul>
+      <div class="pricing-duration">✦ held for up to 10 years · extendable</div>
     </div>
+
+    <div class="pricing-card">
+      <div class="pricing-name">bundle s</div>
+      <div class="pricing-tagline">for the people closest to you.</div>
+      <div class="pricing-price">£14.99 <span>one-off</span></div>
+      <ul class="pricing-features">
+        <li>5 messages × 3 recipients</li>
+        <li>all digital channels</li>
+      </ul>
+      <div class="pricing-duration">✦ held for up to 10 years · extendable</div>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-name">bundle m</div>
+      <div class="pricing-tagline">for families and milestones.</div>
+      <div class="pricing-price">£29.99 <span>one-off</span></div>
+      <ul class="pricing-features">
+        <li>10 messages × 10 recipients</li>
+        <li>all digital channels</li>
+      </ul>
+      <div class="pricing-duration">✦ held for up to 10 years · extendable</div>
+    </div>
+
     <div class="pricing-card featured">
       <span class="featured-label">most thoughtful</span>
       <div class="pricing-name">legacy</div>
       <div class="pricing-tagline">for everything you want to leave behind.</div>
-      <div class="pricing-price">£79 <span>one-off</span></div>
+      <div class="pricing-price">£99 <span>one-off</span></div>
       <ul class="pricing-features">
-        <li>as many messages as you need</li><li>all channels</li><li>5 physical cards included</li>
+        <li>10 messages × 30 recipients</li>
+        <li>all channels</li>
+        <li>5 physical cards included</li>
       </ul>
+      <div class="pricing-duration">✦ held for as long as everly exists</div>
     </div>
+
   </div>
   <p class="pricing-note">all messages are stored securely and delivered via email — the most reliable channel across any timeline. sms and whatsapp available for near-term deliveries.</p>
 </section>
