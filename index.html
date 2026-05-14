@@ -403,11 +403,35 @@
 </footer>
 
 <script>
-  document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+  document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
     e.preventDefault();
-    if (!document.getElementById('first-name').value.trim() || !document.getElementById('email').value.trim()) return;
-    document.getElementById('form-container').style.display = 'none';
-    document.getElementById('thank-you').style.display = 'block';
+    const name = document.getElementById('first-name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const reason = document.getElementById('reason').value;
+    if (!name || !email) return;
+
+    const btn = document.querySelector('.btn-submit');
+    btn.textContent = 'saving...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, reason })
+      });
+
+      if (res.ok) {
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('thank-you').style.display = 'block';
+      } else {
+        btn.textContent = 'something went wrong — try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'something went wrong — try again';
+      btn.disabled = false;
+    }
   });
 
   const revealObserver = new IntersectionObserver((entries) => {
