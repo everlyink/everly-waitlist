@@ -10,7 +10,10 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch('https://api.resend.com/emails', {
+    // log signup to Vercel logs
+    console.log(`NEW SIGNUP — name: ${name} | email: ${email} | reason: ${reason} | date: ${new Date().toISOString()}`);
+
+    // send confirmation email
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
