@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Closest Thing to a Message After Death — everly Journal</title>
+  <meta name="description" content="People have always wanted to speak across time and loss. For the first time, it's actually possible to do it reliably." />
+  <meta property="og:title" content="The Closest Thing to a Message After Death" />
+  <meta property="og:description" content="She almost didn't open it. The email arrived on a Tuesday morning in October — her daughter's twenty-first birthday." />
+  <meta property="og:image" content="https://everly.ink/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest: #2C4A3E; --forest-dark: #1e3329;
+      --terracotta: #C0604A; --terracotta-light: #FCDFC8;
+      --sand: #E8D5B0; --sand-tint: #F4EDD8;
+      --warm-black: #1C1C1A; --warm-white: #FAFAF8;
+      --muted: rgba(28,28,26,0.6); --very-muted: rgba(28,28,26,0.4);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lora', serif; background: var(--warm-white); color: var(--warm-black); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+    nav { position: sticky; top: 0; z-index: 100; background: var(--warm-white); border-bottom: 1px solid var(--sand); padding: 0 clamp(1.5rem,5vw,4rem); height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Alice', serif; font-size: 1.35rem; color: var(--terracotta); text-decoration: none; }
+    .logo .cursor { animation: blink 1s step-end infinite; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 300; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--warm-black); }
+    .nav-cta { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.875rem; color: var(--warm-black); border: 1px solid var(--warm-black); padding: .5rem 1.25rem; border-radius: 4px; text-decoration: none; transition: background .2s, color .2s; }
+    .nav-cta:hover { background: var(--warm-black); color: var(--warm-white); }
+
+    /* ARTICLE */
+    .article-wrap { max-width: 680px; margin: 0 auto; padding: clamp(3rem,8vw,5rem) clamp(1.5rem,5vw,2rem); animation: fadeUp .8s ease both; }
+    .article-tag { font-family: 'Inter', sans-serif; font-size: .7rem; font-weight: 300; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1.25rem; display: block; }
+    .article-title { font-family: 'Alice', serif; font-size: clamp(1.8rem,5vw,2.8rem); color: var(--warm-black); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1.25rem; }
+    .article-meta { font-family: 'Inter', sans-serif; font-size: .8rem; font-weight: 300; color: var(--very-muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--sand); }
+    .article-body p { font-size: 1.05rem; color: var(--warm-black); line-height: 1.85; margin-bottom: 1.75rem; }
+    .article-body h2 { font-family: 'Alice', serif; font-size: 1.4rem; color: var(--warm-black); letter-spacing: -0.01em; margin: 3rem 0 1.25rem; }
+    .article-body blockquote { border-left: 2px solid var(--terracotta-light); padding: .75rem 1.25rem; margin: 2rem 0; background: var(--sand-tint); border-radius: 0 4px 4px 0; }
+    .article-body blockquote p { font-style: italic; color: var(--muted); margin-bottom: 0; font-size: 1rem; }
+    .article-body strong { font-weight: 500; color: var(--warm-black); }
+    .article-body ul { margin: 1.5rem 0 1.75rem 1.25rem; display: flex; flex-direction: column; gap: .75rem; }
+    .article-body ul li { font-size: 1.05rem; color: var(--warm-black); line-height: 1.75; }
+    .article-body .italic-note { font-style: italic; color: var(--muted); }
+
+    /* CTA BLOCK */
+    .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--forest); border-radius: 8px; text-align: center; }
+    .article-cta p { font-family: 'Lora', serif; font-size: 1rem; color: rgba(250,250,248,.8); line-height: 1.75; margin-bottom: 1.5rem; }
+    .article-cta a { display: inline-block; background: var(--terracotta-light); color: var(--warm-black); font-family: 'Alice', serif; font-size: .95rem; padding: .75rem 1.75rem; border-radius: 4px; text-decoration: none; transition: background .2s; }
+    .article-cta a:hover { background: var(--sand); }
+
+    /* BACK LINK */
+    .back-link { display: inline-flex; align-items: center; gap: .4rem; font-family: 'Inter', sans-serif; font-size: .85rem; font-weight: 300; color: var(--muted); text-decoration: none; margin-bottom: 2.5rem; transition: color .2s; }
+    .back-link:hover { color: var(--warm-black); }
+
+    /* FOOTER */
+    footer { background: var(--sand); padding: 2.5rem clamp(1.5rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 5rem; }
+    .footer-logo { font-family: 'Alice', serif; font-size: 1.1rem; color: var(--terracotta); }
+    .footer-logo .cursor { animation: blink 1s step-end infinite; }
+    .footer-copy { font-family: 'Inter', sans-serif; font-size: .8rem; font-weight: 300; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-family: 'Inter', sans-serif; font-size: .8rem; font-weight: 300; color: var(--warm-black); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--terracotta); }
+
+    @media(max-width:600px) { footer { flex-direction: column; align-items: center; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">everly<span class="cursor">|</span></a>
+  <div class="nav-links">
+    <a href="/about.html">about</a>
+    <a href="/blog.html">journal</a>
+    <a href="/#waitlist" class="nav-cta">join the waitlist</a>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <a href="/blog.html" class="back-link">← back to journal</a>
+  <span class="article-tag">Legacy & Loss</span>
+  <h1 class="article-title">The Closest Thing to a Message After Death</h1>
+  <p class="article-meta">by everly · 8 min read</p>
+
+  <div class="article-body">
+
+    <p>She almost didn't open it.</p>
+
+    <p>The email arrived on a Tuesday morning in October — her daughter's twenty-first birthday. The sender line read a name she hadn't seen in her inbox for three years. A name that belonged to someone who was no longer alive.</p>
+
+    <p>Her hands were shaking by the time she reached the second paragraph.</p>
+
+    <blockquote><p>"If you're reading this, I didn't make it to today. But I've been thinking about this birthday since before you were old enough to understand what birthdays meant. I want you to know what I saw in you, even then."</p></blockquote>
+
+    <p>Her mother had written it eighteen months before she died. She had scheduled it, quietly, without telling anyone. And on a Tuesday morning in October, it arrived.</p>
+
+    <h2>The oldest human wish</h2>
+
+    <p>People have always wanted to speak across time and loss.</p>
+
+    <p>We find it in ancient letters sealed inside tombs. In audio recordings left in shoeboxes. In handwritten notes tucked into the back of drawers, waiting to be discovered. In wills that carry a sentence or two of something that isn't legal at all — just love, just truth, just one last thing that needed to be said.</p>
+
+    <p>The wish to leave a message for the people we love — to somehow reach them in a future we won't be part of — is as old as the knowledge that we are mortal.</p>
+
+    <p>What has changed is this: for the first time, it's actually possible to do it reliably. To choose the moment. To know, with something close to certainty, that the words will arrive.</p>
+
+    <h2>What's changed — and what to be careful of</h2>
+
+    <p>In the last few years, a new kind of technology has appeared that promises to keep people "present" after death. AI systems trained on a person's messages and emails, voice clones built from recordings, chatbots designed to respond as the person might have responded.</p>
+
+    <p>These services exist. Some people find comfort in them. That is not for anyone else to judge.</p>
+
+    <p>But there is a meaningful difference between an algorithm that sounds like someone and a message that actually <em>is</em> them.</p>
+
+    <p>An AI trained on someone's texts will produce words they never wrote, in a voice that is a reconstruction. It is, at its best, an impression — shaped by data, not by intention. It cannot choose what to say to you on your wedding day. It cannot decide, in its own voice, what it most wants you to know.</p>
+
+    <p>A message written by a person — their words, their choice of moment, their love made specific and deliberate — is something else entirely. It is not a simulation of presence. It is presence, held in time and delivered.</p>
+
+    <p>That distinction matters. Especially when what you're receiving is something someone chose to leave you.</p>
+
+    <h2>How people are using it</h2>
+
+    <p>They are not, mostly, the people you might expect.</p>
+
+    <p>Some are facing serious illness — cancer diagnoses, degenerative conditions, the kind of prognosis that arrives with a number attached. They write with the particular clarity that comes from knowing time is limited. They write for birthdays they will likely miss. For graduations. For weddings. For the first Christmas when there will be an empty chair.</p>
+
+    <blockquote><p>A father with a terminal diagnosis scheduled twelve messages for his three children — four each. One for each of their eighteenth birthdays. One for when they finish school. One for when they find the person they want to spend their life with. "I don't know what order things will happen," he wrote to a friend, "but I know those moments will come."</p></blockquote>
+
+    <p>But many others are simply people who have understood something about time — that the distance between now and a milestone birthday can be longer than it seems, and that the words worth saying are easier to find in a quiet moment today than in the noise of the day itself.</p>
+
+    <p>A woman wrote to her best friend of thirty years, scheduled for their shared fortieth birthday. Not because she was dying. Because she wanted her friend to receive something real, not a message sent at midnight when everyone else had already said happy birthday.</p>
+
+    <p>A man wrote to himself, to be opened every year on New Year's Day — a letter from who he was, waiting for who he'd become.</p>
+
+    <p>A grandmother wrote to each of her grandchildren: one message, scheduled for the day they turn eighteen. She is seventy-three and in good health. She wrote them because she could, and because she wanted to, and because she understood that love expressed only in person is love that depends entirely on circumstances neither party controls.</p>
+
+    <h2>What to write — and how to start</h2>
+
+    <p>The hardest part is almost always the blank page.</p>
+
+    <p>There is a particular kind of silence that comes when you sit down to write something that might outlast you — or that will simply arrive when you're not there to see it land. The pressure of the moment can crowd out the very thing you wanted to say.</p>
+
+    <p>A few things that help:</p>
+
+    <ul>
+      <li><strong>Don't write for the occasion. Write to the person.</strong> The occasion — the birthday, the graduation, the anniversary — is just a door. What matters is who's on the other side of it. Start there.</li>
+      <li><strong>Write in the present tense.</strong> Not "I hope you are well" but "I know you." Write as if you are speaking now, because you are. The message will travel forward in time; the writing doesn't have to.</li>
+      <li><strong>Say the specific thing.</strong> Not "I'm so proud of you" but why. Not "I love you" but how. The specific one is the one that will be remembered.</li>
+      <li><strong>You don't have to write everything.</strong> One true thing, written clearly, is worth more than a page of everything you ever wanted to say.</li>
+      <li><strong>Begin with "I want you to know."</strong> It names what the message is — not information, not instruction. Something chosen. Something given.</li>
+    </ul>
+
+    <h2>The question underneath the question</h2>
+
+    <p>When people search for "how to send a message after you die," they are not, usually, just looking for a service.</p>
+
+    <p>They are asking something older and harder. They are asking: <em>is there a way to still be there?</em></p>
+
+    <p>The honest answer is: not fully. Nothing crosses that distance completely. And anyone who tells you otherwise is selling something that grief can't actually afford.</p>
+
+    <p>But words can cross it. Words written by a person, in their own voice, holding the specific knowledge of who they loved and when they wanted them to know it — those words can arrive. They can be read on a birthday morning with shaking hands. They can say what needed to be said. They can make someone feel, for a moment, that the distance was not quite as total as it seemed.</p>
+
+    <p>That is not nothing.</p>
+
+    <p>That is, in fact, almost everything.</p>
+
+  </div>
+
+  <div class="article-cta">
+    <p>Everly is built for exactly this — the messages that matter too much to leave to the right moment. Write once. Everly delivers them then.</p>
+    <a href="https://everly.ink/#waitlist">Start your first message at everly.ink →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">everly<span class="cursor">|</span></div>
+  <div class="footer-copy">© 2026 everly · everly.ink</div>
+  <nav class="footer-links">
+    <a href="/about.html">about</a>
+    <a href="/blog.html">journal</a>
+    <a href="/#waitlist">join waitlist</a>
+  </nav>
+</footer>
+
+</body>
+</html>

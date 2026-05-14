@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal — everly</title>
+  <meta name="description" content="Thoughts on time, love, and the messages worth writing. From the team at everly." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest: #2C4A3E; --forest-dark: #1e3329;
+      --terracotta: #C0604A; --terracotta-light: #FCDFC8;
+      --sand: #E8D5B0; --sand-tint: #F4EDD8;
+      --warm-black: #1C1C1A; --warm-white: #FAFAF8;
+      --muted: rgba(28,28,26,0.6); --very-muted: rgba(28,28,26,0.4);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; font-weight: 300; background: var(--warm-white); color: var(--warm-black); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: var(--warm-white); border-bottom: 1px solid var(--sand); padding: 0 clamp(1.5rem,5vw,4rem); height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Alice', serif; font-size: 1.35rem; color: var(--terracotta); text-decoration: none; }
+    .logo .cursor { color: var(--terracotta); animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-size: 0.875rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--warm-black); }
+    .nav-cta { font-size: 0.875rem; color: var(--warm-black); border: 1px solid var(--warm-black); padding: .5rem 1.25rem; border-radius: 4px; text-decoration: none; transition: background .2s, color .2s; }
+    .nav-cta:hover { background: var(--warm-black); color: var(--warm-white); }
+
+    /* HERO */
+    .journal-hero { padding: clamp(4rem,8vw,6rem) clamp(1.5rem,5vw,4rem); border-bottom: 1px solid var(--sand); }
+    .journal-hero h1 { font-family: 'Alice', serif; font-size: clamp(2rem,5vw,3.5rem); color: var(--warm-black); letter-spacing: -0.02em; margin-bottom: .75rem; }
+    .journal-hero p { font-size: 1rem; color: var(--muted); max-width: 480px; }
+
+    /* POSTS */
+    .posts-grid { padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; max-width: 1080px; }
+    .post-card { display: flex; flex-direction: column; gap: 1rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--sand); }
+    .post-card:last-child { border-bottom: none; }
+    .post-tag { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta); }
+    .post-card h2 { font-family: 'Alice', serif; font-size: clamp(1.3rem,2.5vw,1.7rem); color: var(--warm-black); letter-spacing: -0.01em; line-height: 1.3; }
+    .post-card h2 a { text-decoration: none; color: inherit; transition: color .2s; }
+    .post-card h2 a:hover { color: var(--terracotta); }
+    .post-excerpt { font-family: 'Lora', serif; font-size: .95rem; color: var(--muted); line-height: 1.75; }
+    .post-meta { font-size: .75rem; color: var(--very-muted); }
+    .read-more { font-size: .85rem; color: var(--forest); text-decoration: none; display: inline-flex; align-items: center; gap: .35rem; transition: gap .2s; }
+    .read-more:hover { gap: .6rem; }
+
+    /* FOOTER */
+    footer { background: var(--sand); padding: 2.5rem clamp(1.5rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: auto; }
+    .footer-logo { font-family: 'Alice', serif; font-size: 1.1rem; color: var(--terracotta); }
+    .footer-logo .cursor { color: var(--terracotta); animation: blink 1s step-end infinite; }
+    .footer-copy { font-size: .8rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: .8rem; color: var(--warm-black); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--terracotta); }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .journal-hero { animation: fadeUp .7s ease both; }
+    .post-card { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .post-card.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">everly<span class="cursor">|</span></a>
+  <div class="nav-links">
+    <a href="/blog.html" class="active">journal</a>
+    <a href="/#waitlist" class="nav-cta">join the waitlist</a>
+  </div>
+</nav>
+
+<div class="journal-hero">
+  <h1>Journal</h1>
+  <p>Thoughts on time, love, and the messages worth writing.</p>
+</div>
+
+<div class="posts-grid">
+
+  <div class="post-card">
+    <span class="post-tag">Legacy & Loss</span>
+    <h2><a href="/blog/message-after-death.html">The Closest Thing to a Message After Death</a></h2>
+    <p class="post-excerpt">She almost didn't open it. The email arrived on a Tuesday morning in October — her daughter's twenty-first birthday. The sender line read a name she hadn't seen in her inbox for three years.</p>
+    <p class="post-meta">by everly · 8 min read</p>
+    <a href="/blog/message-after-death.html" class="read-more">Read →</a>
+  </div>
+
+  <div class="post-card">
+    <span class="post-tag">For Parents</span>
+    <h2><a href="/blog/messages-for-your-children.html">How to Leave Messages for Your Children They'll Treasure Forever</a></h2>
+    <p class="post-excerpt">There is a conversation most parents never quite have. Not for lack of love. Not for lack of intention. But because the right moment never seems to arrive.</p>
+    <p class="post-meta">by everly · 7 min read</p>
+    <a href="/blog/messages-for-your-children.html" class="read-more">Read →</a>
+  </div>
+
+  <div class="post-card">
+    <span class="post-tag">Our Story</span>
+    <h2><a href="/blog/she-wrote-to-me-in-letters.html">She Wrote to Me in Letters</a></h2>
+    <p class="post-excerpt">My grandmother and I lived in different cities. We could not see each other often. So we wrote. Reading her words was like being held from a distance. That is where everly begins.</p>
+    <p class="post-meta">by everly · 4 min read</p>
+    <a href="/blog/she-wrote-to-me-in-letters.html" class="read-more">Read →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">everly<span class="cursor">|</span></div>
+  <div class="footer-copy">© 2026 everly · everly.ink</div>
+  <nav class="footer-links">
+    <a href="/blog.html">journal</a>
+    <a href="/#waitlist">join waitlist</a>
+  </nav>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 150); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.post-card').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
