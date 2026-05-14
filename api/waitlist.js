@@ -10,10 +10,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    // log signup to Vercel logs
+    // log signup
     console.log(`NEW SIGNUP — name: ${name} | email: ${email} | reason: ${reason} | date: ${new Date().toISOString()}`);
 
     // send confirmation email
+    const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
@@ -23,9 +24,8 @@ export default async function handler(req, res) {
         from: 'everly <hello@everly.ink>',
         to: email,
         reply_to: 'hello@everly.ink',
-        subject: 'you\'re on the list.',
-        html: `
-<!DOCTYPE html>
+        subject: "you're on the list.",
+        html: `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -38,23 +38,18 @@ export default async function handler(req, res) {
       <td align="center">
         <table width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
 
-          <!-- logo -->
           <tr>
             <td style="padding-bottom:40px;">
               <span style="font-family:Georgia,serif;font-size:1.2rem;color:#C0604A;letter-spacing:-0.01em;">everly|</span>
             </td>
           </tr>
 
-          <!-- greeting -->
           <tr>
             <td style="padding-bottom:24px;border-bottom:1px solid #E8D5B0;">
-              <p style="margin:0;font-family:Georgia,serif;font-size:1.5rem;color:#1C1C1A;line-height:1.4;letter-spacing:-0.01em;">
-                dear ${name},
-              </p>
+              <p style="margin:0;font-family:Georgia,serif;font-size:1.5rem;color:#1C1C1A;line-height:1.4;letter-spacing:-0.01em;">dear ${name},</p>
             </td>
           </tr>
 
-          <!-- body -->
           <tr>
             <td style="padding-top:32px;padding-bottom:32px;">
               <p style="margin:0 0 20px;font-family:Georgia,serif;font-size:1rem;color:#1C1C1A;line-height:1.8;">
@@ -69,12 +64,10 @@ export default async function handler(req, res) {
             </td>
           </tr>
 
-          <!-- divider -->
           <tr>
             <td style="padding-bottom:32px;border-top:1px solid #E8D5B0;"></td>
           </tr>
 
-          <!-- sign off -->
           <tr>
             <td style="padding-bottom:48px;">
               <p style="margin:0 0 4px;font-family:Georgia,serif;font-size:0.95rem;color:#1C1C1A;line-height:1.7;">with care,</p>
@@ -82,7 +75,6 @@ export default async function handler(req, res) {
             </td>
           </tr>
 
-          <!-- footer -->
           <tr>
             <td style="border-top:1px solid #E8D5B0;padding-top:24px;">
               <p style="margin:0;font-family:Georgia,serif;font-size:0.75rem;color:rgba(28,28,26,0.4);line-height:1.6;">
@@ -98,8 +90,7 @@ export default async function handler(req, res) {
     </tr>
   </table>
 </body>
-</html>
-        `
+</html>`
       })
     });
 
