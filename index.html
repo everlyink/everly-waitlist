@@ -199,14 +199,14 @@
   <a href="#" class="logo" aria-label="everly home">everly<span class="cursor" aria-hidden="true">|</span></a>
   <div style="display:flex;align-items:center;gap:1.5rem;">
     <a href="/blog.html" style="font-family:'Inter',sans-serif;font-weight:300;font-size:.875rem;color:rgba(28,28,26,.6);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#1C1C1A'" onmouseout="this.style.color='rgba(28,28,26,.6)'">journal</a>
-    <a href="#waitlist" class="nav-cta">join the waitlist</a>
+    <a href="https://app.everly.ink/signup" class="nav-cta">start writing</a>
   </div>
 </nav>
 
 <section id="hero">
   <h1><span style="color:#8B3D28;">&ldquo;send this on olivia&rsquo;s 18th birthday in 2030.&rdquo;</span></h1>
   <p class="sub">some messages are too important to leave to the right moment. write them now. everly delivers them then.</p>
-  <a href="#waitlist" class="btn-forest">join the waitlist →</a>
+  <a href="https://app.everly.ink/signup" class="btn-forest">start writing →</a>
   <div class="social-proof" aria-label="social proof">
     <div class="proof-faces" aria-hidden="true">
       <div class="proof-face" style="background:#2C4A3E;">m</div>
@@ -216,7 +216,7 @@
     </div>
     <p class="proof-text"><strong>maya, dan, james, and others</strong> are already writing their first messages. be among the first.</p>
   </div>
-  <p class="hero-caption">free to join. a message to the future.</p>
+  <p class="hero-caption">free to start. a message to the future.</p>
 </section>
 
 <section class="section-cream reveal" aria-labelledby="features-heading">
@@ -425,39 +425,15 @@
   <p class="pricing-note">email delivery available now — the most reliable channel across any timeline. sms launching shortly.</p>
 </section>
 
-<section id="waitlist" class="reveal" aria-labelledby="waitlist-heading">
+<section id="waitlist" class="reveal" aria-labelledby="start-heading">
   <div class="section-heading">
-    <h2 id="waitlist-heading" style="color:var(--warm-white)">be the first to send.</h2>
-    <p>everly is launching soon. join the waitlist and we'll let you know the moment you can start writing.</p>
+    <h2 id="start-heading" style="color:var(--warm-white)">ready to write yours?</h2>
+    <p>everly is live. your first message is free — no card required.</p>
   </div>
-  <div class="form-wrap" id="form-container">
-    <form id="waitlist-form" novalidate>
-      <div class="form-group">
-        <label for="first-name">first name</label>
-        <input type="text" id="first-name" name="first_name" placeholder="your first name" autocomplete="given-name" required />
-      </div>
-      <div class="form-group">
-        <label for="email">email address</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
-      </div>
-      <div class="form-group">
-        <label for="reason">what brings you to everly?</label>
-        <select id="reason" name="reason">
-          <option value="">choose one (optional)</option>
-          <option value="schedule">i want to schedule messages for loved ones</option>
-          <option value="self">i schedule messages to myself every year</option>
-          <option value="milestones">i'm planning ahead for important milestones</option>
-          <option value="diagnosis">i've been given a diagnosis and want to plan ahead</option>
-          <option value="curious">i heard about it and i'm curious</option>
-          <option value="other">other</option>
-        </select>
-      </div>
-      <button type="submit" class="btn-submit">save my place →</button>
-      <p class="form-fine-print">we'll only email you about everly. unsubscribe anytime.</p>
-    </form>
-  </div>
-  <div class="thank-you" id="thank-you" role="status" aria-live="polite">
-    <p>you're on the list. <span class="star">✦</span><br>we'll be in touch soon.</p>
+  <div style="text-align:center;padding-top:1rem;">
+    <a href="https://app.everly.ink/signup" class="btn-submit" style="display:inline-block;width:auto;padding:.85rem 2.5rem;font-size:1.1rem;">start writing →</a>
+    <p class="form-fine-print" style="margin-top:1.25rem;">free to start. takes two minutes. no card required.</p>
+    <p style="margin-top:1rem;font-size:.8rem;color:rgba(250,250,248,.45);">already have an account? <a href="https://app.everly.ink/login" style="color:var(--terracotta-light);text-decoration:none;">sign in →</a></p>
   </div>
 </section>
 
@@ -467,37 +443,6 @@
 </footer>
 
 <script>
-  document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const name = document.getElementById('first-name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const reason = document.getElementById('reason').value;
-    if (!name || !email) return;
-
-    const btn = document.querySelector('.btn-submit');
-    btn.textContent = 'saving...';
-    btn.disabled = true;
-
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, reason })
-      });
-
-      if (res.ok) {
-        document.getElementById('form-container').style.display = 'none';
-        document.getElementById('thank-you').style.display = 'block';
-      } else {
-        btn.textContent = 'something went wrong — try again';
-        btn.disabled = false;
-      }
-    } catch {
-      btn.textContent = 'something went wrong — try again';
-      btn.disabled = false;
-    }
-  });
-
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
