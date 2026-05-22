@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Letter to the Three Lions — everly Journal</title>
+  <meta name="description" content="The squad's been named. Dallas is booked. A lifelong England fan writes the letter he always knew he'd have to write — before it all begins." />
+  <meta property="og:title" content="A Letter to the Three Lions" />
+  <meta property="og:description" content="I want to keep this version. The one before." />
+  <meta property="og:image" content="https://everly.ink/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest: #2C4A3E;
+      --terracotta: #C0604A; --terracotta-light: #FCDFC8;
+      --sand: #E8D5B0; --sand-tint: #F4EDD8;
+      --warm-black: #1C1C1A; --warm-white: #FAFAF8;
+      --muted: rgba(28,28,26,0.6); --very-muted: rgba(28,28,26,0.4);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lora', serif; background: var(--warm-white); color: var(--warm-black); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--warm-white); border-bottom: 1px solid var(--sand); padding: 0 clamp(1.5rem,5vw,4rem); height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Alice', serif; font-size: 1.35rem; color: var(--terracotta); text-decoration: none; }
+    .logo .cursor { animation: blink 1s step-end infinite; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 300; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--warm-black); }
+    .nav-cta { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.875rem; color: var(--warm-black); border: 1px solid var(--warm-black); padding: .5rem 1.25rem; border-radius: 4px; text-decoration: none; transition: background .2s, color .2s; }
+    .nav-cta:hover { background: var(--warm-black); color: var(--warm-white); }
+    .article-wrap { max-width: 680px; margin: 0 auto; padding: clamp(3rem,8vw,5rem) clamp(1.5rem,5vw,2rem); animation: fadeUp .8s ease both; }
+    .article-tag { font-family: 'Inter', sans-serif; font-size: .7rem; font-weight: 300; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1.25rem; display: block; }
+    .article-title { font-family: 'Alice', serif; font-size: clamp(1.8rem,5vw,2.8rem); color: var(--warm-black); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1.25rem; }
+    .article-meta { font-family: 'Inter', sans-serif; font-size: .8rem; font-weight: 300; color: var(--very-muted); margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--sand); }
+    .article-body p { font-size: 1.05rem; color: var(--warm-black); line-height: 1.85; margin-bottom: 1.75rem; }
+    .article-body h2 { font-family: 'Alice', serif; font-size: 1.4rem; color: var(--warm-black); letter-spacing: -0.01em; margin: 3rem 0 1.25rem; }
+    .article-body blockquote { border-left: 2px solid var(--terracotta-light); padding: .75rem 1.25rem; margin: 2rem 0; background: var(--sand-tint); border-radius: 0 4px 4px 0; }
+    .article-body blockquote p { font-style: italic; color: var(--muted); margin-bottom: 0; font-size: 1rem; }
+    .article-body em { font-style: italic; }
+    .article-body .letter-sign { font-style: italic; color: var(--muted); }
+    .delivered-card { background: var(--terracotta); border-radius: 6px; padding: 2rem 2rem 1.5rem; margin: 2.5rem auto; max-width: 420px; }
+    .delivered-card .from { font-family: 'Inter', sans-serif; font-size: .75rem; font-weight: 300; color: rgba(250,240,232,0.65); margin-bottom: .75rem; }
+    .delivered-card .subject { font-family: 'Alice', serif; font-size: 1.6rem; color: var(--warm-white); line-height: 1.2; margin-bottom: .4rem; }
+    .delivered-card .date { font-family: 'Inter', sans-serif; font-size: .75rem; font-weight: 300; color: rgba(250,240,232,0.55); margin-bottom: 1.4rem; padding-bottom: 1.4rem; border-bottom: 1px solid rgba(250,240,232,0.2); }
+    .delivered-card .body { font-family: 'Lora', serif; font-style: italic; font-size: .95rem; color: rgba(250,240,232,0.92); line-height: 1.8; }
+    .delivered-card .body p { margin-bottom: 1.1rem; color: rgba(250,240,232,0.92); font-size: .95rem; line-height: 1.8; }
+    .delivered-card .body p:last-child { margin-bottom: 0; }
+    .delivered-card .footer-line { font-family: 'Inter', sans-serif; font-size: .7rem; font-weight: 300; color: rgba(250,240,232,0.4); margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(250,240,232,0.15); }
+    .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--forest); border-radius: 8px; text-align: center; }
+    .article-cta p { font-family: 'Lora', serif; font-size: 1rem; color: rgba(250,250,248,.8); line-height: 1.75; margin-bottom: 1.5rem; }
+    .article-cta a { display: inline-block; background: var(--terracotta-light); color: var(--warm-black); font-family: 'Alice', serif; font-size: .95rem; padding: .75rem 1.75rem; border-radius: 4px; text-decoration: none; transition: background .2s; }
+    .article-cta a:hover { background: var(--sand); }
+    .back-link { display: inline-flex; align-items: center; gap: .4rem; font-family: 'Inter', sans-serif; font-size: .85rem; font-weight: 300; color: var(--muted); text-decoration: none; margin-bottom: 2.5rem; transition: color .2s; }
+    .back-link:hover { color: var(--warm-black); }
+    footer { background: var(--sand); padding: 2.5rem clamp(1.5rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 5rem; }
+    .footer-logo { font-family: 'Alice', serif; font-size: 1.1rem; color: var(--terracotta); }
+    .footer-logo .cursor { animation: blink 1s step-end infinite; }
+    .footer-copy { font-family: 'Inter', sans-serif; font-size: .8rem; font-weight: 300; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-family: 'Inter', sans-serif; font-size: .8rem; font-weight: 300; color: var(--warm-black); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--terracotta); }
+    @media(max-width:600px) { footer { flex-direction: column; align-items: center; text-align: center; } .delivered-card { max-width: 100%; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">everly<span class="cursor">|</span></a>
+  <div class="nav-links">
+    <a href="/blog.html">journal</a>
+    <a href="https://app.everly.ink/signup" class="nav-cta">start writing</a>
+  </div>
+</nav>
+<div class="article-wrap">
+  <a href="/blog.html" class="back-link">← back to journal</a>
+  <span class="article-tag">Football &amp; Time</span>
+  <h1 class="article-title">A Letter to the Three Lions</h1>
+  <p class="article-meta">by everly · 22 May 2026 · 4 min read</p>
+  <div class="article-body">
+    <p>I was two years old the first time I saw England play. I don't remember it. But my dad says I sat in front of the telly with my arms folded and watched the whole thing without blinking — which apparently I still do, and which my wife finds extremely irritating.</p>
+    <p>Thirty-three years of this. Thirty-three years of tournaments and near-misses and penalty shootouts I can still feel in my stomach. Thirty-three years of believing, which is — if I'm honest — a form of madness. Benign, communal, English madness. But madness nonetheless.</p>
+    <p>The squad came out today. I read it standing in the hallway, jacket still on, like I was expecting to find something between the lines. Some hidden clue about how this one ends.</p>
+    <h2>the one before</h2>
+    <p>I'm writing this now because I know what happens to the feeling.</p>
+    <p>Right now it's clean. The hope hasn't curdled yet. Bellingham hasn't miscontrolled it in the box. The penalty hasn't been saved. It's the 22nd of May and anything still feels possible.</p>
+    <blockquote><p>I want to keep this version. The one before.</p></blockquote>
+    <p>So. A letter. Written today, to be opened when it's over. To the Three Lions. To all twenty-six of them boarding a plane to North America carrying the usual impossible weight.</p>
+  </div>
+  <div class="delivered-card">
+    <p class="from">a message from chan man</p>
+    <p class="subject">dear lads,</p>
+    <p class="date">22 may 2026</p>
+    <div class="body">
+      <p>You'll know by now how it ended. I don't, yet. That's the strange thing about writing to you like this — you're somewhere in my future and I'm here in your past.</p>
+      <p>Kane is going to his third World Cup. He's still here. I've moved house twice since his debut. He keeps turning up, reliable as gravity, slightly better than the tournament deserves.</p>
+      <p>Wednesday 17th June. Nine o'clock. Dallas. Croatia. Again. My mate Dave already sent a voice note — forty-five seconds of heavy breathing, then "it's Croatia again," and he hung up. We'll be nervous from about four in the afternoon. We'll pretend we aren't.</p>
+      <p>I'm thirty-five. I'm old enough to know better than to tell you this is the year.</p>
+      <p>But here's what I do know: it still matters. The flags in the windows. The group chats. My dad texting "Kane's going again" at half past ten like I might have missed it. Twenty million people stopping what they're doing on a Tuesday night in June to watch football in Massachusetts.</p>
+      <p>That is not a small thing.</p>
+      <p>So go. Play. Give us the summer we need. Know that we were with you — all the way to the edge of whatever this becomes.</p>
+      <p>Yours,<br>a 35-year-old man who has been doing this since he was two. and has absolutely no intention of stopping.</p>
+    </div>
+    <p class="footer-line">written 22 may 2026 · delivered by everly</p>
+  </div>
+  <div class="article-cta">
+    <p>This summer will give you something worth writing down. A message to your future self. To the person you'll watch the final with. To someone who needs to know you were thinking of them.</p>
+    <a href="https://app.everly.ink/signup">write your message at everly.ink →</a>
+  </div>
+</div>
+<footer>
+  <div class="footer-logo">everly<span class="cursor">|</span></div>
+  <div class="footer-copy">© 2026 everly · everly.ink</div>
+  <nav class="footer-links">
+    <a href="/blog.html">journal</a>
+    <a href="https://app.everly.ink/signup">start writing</a>
+  </nav>
+</footer>
+</body>
+</html>
