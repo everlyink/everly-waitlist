@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#FCDFC8"/>
-  <text x="16" y="23" font-family="Palatino, 'Book Antiqua', 'Palatino Linotype', serif" font-size="20" fill="#2C4A3E" text-anchor="middle" letter-spacing="-1">e<tspan opacity="0.7">|</tspan></text>
+  <circle cx="16" cy="16" r="16" fill="#2C4A3E"/>
+  <text x="9" y="22" font-family="Palatino, 'Palatino Linotype', Georgia, serif" font-size="18" fill="#FCDFC8">e</text>
+  <rect x="21" y="9" width="2.5" height="14" fill="#C0604A"/>
 </svg>
