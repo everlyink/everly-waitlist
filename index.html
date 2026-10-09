@@ -124,30 +124,12 @@
       .step.reverse { direction: ltr; }
     }
 
-    /* ── SCROLL REVEAL ── */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
     .reveal-delay-1 { transition-delay: .1s; }
     .reveal-delay-2 { transition-delay: .2s; }
     .reveal-delay-3 { transition-delay: .32s; }
-
-    /* ── CARD ANIMATIONS ── */
-    .ps-day.selected { background: var(--forest); color: var(--warm-white); border-radius: 50%; }
-
-    /* ── INTERLUDE ANIMATION ── */
-    @keyframes writeL1 { 0%,8%{stroke-dashoffset:1} 28%,100%{stroke-dashoffset:0} }
-    @keyframes writeL2 { 0%,20%{stroke-dashoffset:1} 40%,100%{stroke-dashoffset:0} }
-    @keyframes writeL3 { 0%,32%{stroke-dashoffset:1} 50%,100%{stroke-dashoffset:0} }
-    @keyframes flapClose { 0%,48%{d:path("M 220,218 L 320,278 L 420,218")} 63%,100%{d:path("M 220,218 L 320,158 L 420,218")} }
-    @keyframes envRise { 0%,58%{transform:translateY(0) rotate(0deg);opacity:1} 78%{transform:translateY(-130px) rotate(6deg);opacity:0} 79%,100%{transform:translateY(0) rotate(0deg);opacity:0} }
-    @keyframes sheetFade { 0%,52%{opacity:1} 62%,100%{opacity:0} }
-    @keyframes dotIn { 0%,75%{transform:scale(0);opacity:0} 85%{transform:scale(1.2);opacity:1} 92%,100%{transform:scale(1);opacity:1} }
-    @keyframes ringOut { 0%,76%{r:0;opacity:0} 86%{r:30;opacity:.3} 94%,100%{r:44;opacity:0} }
-    @keyframes labelIn { 0%,80%{opacity:0;transform:translateY(5px)} 92%,100%{opacity:1;transform:translateY(0)} }
-    @keyframes s1 { 0%,62%{opacity:0;transform:translate(0,0)} 72%{opacity:1;transform:translate(-16px,-20px)} 82%,100%{opacity:0;transform:translate(-22px,-34px)} }
-    @keyframes s2 { 0%,65%{opacity:0;transform:translate(0,0)} 75%{opacity:1;transform:translate(18px,-16px)} 85%,100%{opacity:0;transform:translate(26px,-28px)} }
-    @keyframes s3 { 0%,68%{opacity:0;transform:translate(0,0)} 78%{opacity:1;transform:translate(-6px,-25px)} 88%,100%{opacity:0;transform:translate(-10px,-40px)} }
 
     .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto 2rem; }
     .pricing-card { background: var(--warm-white); border: 1px solid var(--terracotta-mid); border-radius: 6px; padding: 2rem 1.75rem; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: transform .2s; }
@@ -238,7 +220,7 @@
         <path d="M6 15l14 9 14-9" stroke="#2C4A3E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <h3>every channel. every format.</h3>
-      <p>email now, sms coming soon — or a physical card in the post. your words, delivered the way they mean most.</p>
+      <p>email or sms — or a physical card in the post. your words, delivered the way they mean most.</p>
     </div>
     <div class="feature-card">
       <svg class="feature-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -277,7 +259,6 @@
   </div>
   <div class="steps">
 
-    <!-- step 1 -->
     <div class="step">
       <div class="step-left">
         <div class="step-number" aria-hidden="true">01</div>
@@ -299,7 +280,6 @@
       </div>
     </div>
 
-    <!-- step 2 -->
     <div class="step reverse">
       <div class="step-left">
         <div class="step-number" aria-hidden="true">02</div>
@@ -329,13 +309,12 @@
       </div>
     </div>
 
-    <!-- step 3 -->
     <div class="step">
       <div class="step-left">
         <div class="step-number" aria-hidden="true">03</div>
         <div class="step-content">
           <h3>it arrives. right on time.</h3>
-          <p>your recipient receives a beautifully presented message — by email or physical card. from you. in your words.</p>
+          <p>your recipient receives a beautifully presented message — by email, sms, or physical card. from you. in your words.</p>
         </div>
       </div>
       <div class="preview-delivered" aria-hidden="true">
@@ -381,7 +360,7 @@
       <ul class="pricing-features">
         <li>3 messages</li>
         <li>1 recipient</li>
-        <li>email · sms coming soon</li>
+        <li>email · sms</li>
       </ul>
       <div class="pricing-duration">✦ schedule up to 10 years ahead · extendable</div>
     </div>
@@ -392,7 +371,7 @@
       <div class="pricing-price">£14.99 <span>one-off</span></div>
       <ul class="pricing-features">
         <li>5 messages × 3 recipients</li>
-        <li>email · sms coming soon</li>
+        <li>email · sms</li>
       </ul>
       <div class="pricing-duration">✦ schedule up to 10 years ahead · extendable</div>
     </div>
@@ -403,7 +382,7 @@
       <div class="pricing-price">£29.99 <span>one-off</span></div>
       <ul class="pricing-features">
         <li>10 messages × 10 recipients</li>
-        <li>email · sms coming soon</li>
+        <li>email · sms</li>
       </ul>
       <div class="pricing-duration">✦ schedule up to 10 years ahead · extendable</div>
     </div>
@@ -415,14 +394,14 @@
       <div class="pricing-price">£99 <span>one-off</span></div>
       <ul class="pricing-features">
         <li>10 messages × 30 recipients</li>
-        <li>email · sms coming soon · physical cards</li>
+        <li>email · sms · physical cards</li>
         <li>5 physical cards included</li>
       </ul>
       <div class="pricing-duration">✦ held for as long as everly exists</div>
     </div>
 
   </div>
-  <p class="pricing-note">email delivery available now — the most reliable channel across any timeline. sms launching shortly.</p>
+  <p class="pricing-note">email and sms available now worldwide. physical cards coming soon.</p>
 </section>
 
 <section class="section-white reveal" aria-labelledby="journal-heading">
@@ -452,7 +431,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="section-white reveal" aria-labelledby="faq-heading">
   <div class="section-heading">
     <h2 id="faq-heading">questions</h2>
@@ -477,7 +455,7 @@
 
     <details style="border-bottom:1px solid var(--sand);padding:1.25rem 0;">
       <summary style="font-family:'Alice',serif;font-size:1rem;color:var(--warm-black);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">how does the recipient receive the message? <span style="color:var(--terracotta);font-size:1.2rem;">+</span></summary>
-      <p style="font-family:'Inter',sans-serif;font-weight:300;font-size:.95rem;color:var(--muted);line-height:1.8;margin-top:.75rem;">on the chosen date, your recipient receives an email with a short preview and a link. clicking the link opens a beautifully presented page — your full message, in the theme you chose, with a note that it was written on a specific date and held safely until today. no account needed to read it.</p>
+      <p style="font-family:'Inter',sans-serif;font-weight:300;font-size:.95rem;color:var(--muted);line-height:1.8;margin-top:.75rem;">on the chosen date, your recipient receives an email or sms with a link. clicking the link opens a beautifully presented page — your full message, in the theme you chose, with a note that it was written on a specific date and held safely until today. no account needed to read it.</p>
     </details>
 
     <details style="border-bottom:1px solid var(--sand);padding:1.25rem 0;">
@@ -497,13 +475,12 @@
 
     <details style="padding:1.25rem 0;">
       <summary style="font-family:'Alice',serif;font-size:1rem;color:var(--warm-black);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">can i send sms to numbers outside the uk? <span style="color:var(--terracotta);font-size:1.2rem;">+</span></summary>
-      <p style="font-family:'Inter',sans-serif;font-weight:300;font-size:.95rem;color:var(--muted);line-height:1.8;margin-top:.75rem;">sms delivery is launching shortly and will support international numbers. standard messaging rates apply by destination — costs vary by country. email delivery is available worldwide at no extra cost and is the most reliable channel for long-horizon messages regardless of where your recipient is.</p>
+      <p style="font-family:'Inter',sans-serif;font-weight:300;font-size:.95rem;color:var(--muted);line-height:1.8;margin-top:.75rem;">yes — everly sms works internationally. currently supported countries include the uk, usa, canada, australia, hong kong, singapore, isle of man, and more. email delivery is available worldwide at no extra cost and remains the most reliable channel for long-horizon messages regardless of where your recipient is.</p>
     </details>
 
   </div>
 </section>
 
-<!-- final CTA -->
 <section id="waitlist" class="reveal" aria-labelledby="start-heading">
   <div class="section-heading">
     <h2 id="start-heading" style="color:var(--warm-white)">ready to write yours</h2>
@@ -538,7 +515,6 @@
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // also trigger any reveal elements already in view on load
   setTimeout(() => {
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
       const rect = el.getBoundingClientRect();
