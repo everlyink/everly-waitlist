@@ -184,5 +184,33 @@
   </nav>
 </footer>
 
+<!-- everly measurement: OpenAI pixel, off until the visitor says yes -->
+<style>
+#ev-consent{display:none;position:fixed;left:16px;right:16px;bottom:16px;max-width:440px;margin:0 auto;z-index:9999;background:#FAFAF8;color:#1C1C1A;border:1px solid #E8D5B0;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.08);font-family:'Inter',-apple-system,sans-serif;font-weight:400}
+#ev-consent p{margin:0 0 14px;font-size:14px;line-height:1.5}
+#ev-consent a{color:#2C4A3E}
+#ev-consent .ev-row{display:flex;gap:10px}
+#ev-consent button{flex:1 1 0;min-height:44px;padding:0 18px;border-radius:999px;cursor:pointer;font-family:inherit;font-size:14px;border:1.5px solid #2C4A3E;background:#2C4A3E;color:#FAFAF8}
+</style>
+<div id="ev-consent" role="dialog" aria-label="cookie choices">
+  <p>may we use a measurement cookie to learn which of our ads bring people to everly? it’s optional, and everything works either way. <a href="/privacy.html">privacy &amp; cookies</a></p>
+  <div class="ev-row"><button type="button" id="ev-no">no thanks</button><button type="button" id="ev-yes">yes, that’s fine</button></div>
+</div>
+<script>
+(function(){
+  function get(){var m=document.cookie.match(/(?:^|; )everly_consent=([^;]*)/);return m?m[1]:null}
+  function set(v){var d=/everly\.ink$/.test(location.hostname)?'; domain=.everly.ink':'';document.cookie='everly_consent='+v+'; max-age=15552000; path=/; SameSite=Lax'+(location.protocol==='https:'?'; Secure':'')+d}
+  !function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+  var c=get();
+  oaiq("consent",c==="granted");
+  oaiq("init",{pixelId:"3nuozLBZDfGc1oZemFsYPt",debug:true});
+  if(c==="granted")oaiq("measure","page_viewed",{});
+  var box=document.getElementById("ev-consent");
+  if(c===null)box.style.display="block";
+  function choose(v){set(v);box.style.display="none";oaiq("consent",v==="granted");if(v==="granted")oaiq("measure","page_viewed",{})}
+  document.getElementById("ev-yes").onclick=function(){choose("granted")};
+  document.getElementById("ev-no").onclick=function(){choose("denied")};
+})();
+</script>
 </body>
 </html>
